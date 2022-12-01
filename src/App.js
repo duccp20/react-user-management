@@ -1,6 +1,5 @@
-import "./App.css";
+// components
 import UserManagement from "./user-management/UserManagement";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (

@@ -1,23 +1,38 @@
 import React from "react";
+
+// boostrap core
+import { Button, Form, Row, Col } from "react-bootstrap";
+
+// components
 import Input from "../components/Input";
 import Select from "../components/Select";
 import Textarea from "../components/Textarea";
 import RadioButton from "../components/RadioButton";
-import { Button, Form, Row, Col } from "react-bootstrap";
+import Typography from '../components/Typography';
+import TextField from '../components/TextField';
+
 const FormUser = ({ formInput, handleSubmit, onChange }) => {
   return (
     <Form onSubmit={handleSubmit}>
       <h1>Register</h1>
       <Row className="mb-3">
-        <Input
-          type={"text"}
-          label={"Name:"}
-          placeholder={"Enter Name"}
-          name={"name"}
-          value={formInput.name}
-          onChange={onChange}
-        />
+        <Form.Group as={Row} className="mb-3" controlId="">
+          <Form.Label column sm={2}>
+            <Typography label="Name:" />
+          </Form.Label>
+          <Col sm={10}>
+            <TextField 
+              type={"text"}
+              placeholder={"Enter Name"}
+              name={"name"}
+              value={formInput.name}
+              onChange={onChange}
+              className="name"
+            />
+          </Col>
+        </Form.Group>
       </Row>
+    
       <fieldset>
         <Form.Group as={Row} className="mb-3">
           <Form.Label as="legend" column sm={2}>
@@ -29,13 +44,13 @@ const FormUser = ({ formInput, handleSubmit, onChange }) => {
               value="Male"
               label="Male"
               onChange={onChange}
-            ></RadioButton>
+            />
             <RadioButton
               label="Female"
               name={"gender"}
               value="Female"
               onChange={onChange}
-            ></RadioButton>
+            />
           </Col>
         </Form.Group>
       </fieldset>
